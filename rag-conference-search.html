@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>AMaising.ca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="AMaising.ca" />
+    <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, portfolio" />
+    <meta name="author" content="lmpixels" />
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
+    <link rel="stylesheet" href="css/animations.css" type="text/css">
+    <link rel="stylesheet" href="css/perfect-scrollbar.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
+    <script src="js/modernizr.custom.js"></script>
+  </head>
+
+  <body>
+    <!-- Animated Background -->
+    <div class="lm-animated-bg" style="background-image: url(img/main_bg.png);"></div>
+    <!-- /Animated Background -->
+
+    <!-- Loading animation -->
+    <div class="preloader">
+      <div class="preloader-animation">
+        <div class="preloader-spinner">
+        </div>
+      </div>
+    </div>
+    <!-- /Loading animation -->
+
+    <div class="page">
+      <div class="page-content">
+
+          <header id="site_header" class="header mobile-menu-hide">
+            <div class="header-content">
+              <div class="header-photo">
+                <img src="img/AdamProfilePicture2.PNG" alt="Adam Mais" />
+              </div>
+              <div class="header-titles">
+                <h2>Adam Mais</h2>
+              </div>
+            </div>
+
+            <ul class="main-menu">
+              <li>
+                <a href="index.html#home" class="nav-anim">
+                  <span class="menu-icon lnr lnr-home"></span>
+                  <span class="link-text">Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#about-me" class="nav-anim">
+                  <span class="menu-icon lnr lnr-user"></span>
+                  <span class="link-text">About Me</span>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#resume" class="nav-anim">
+                  <span class="menu-icon lnr lnr-graduation-hat"></span>
+                  <span class="link-text">Resume</span>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#portfolio" class="nav-anim">
+                  <span class="menu-icon lnr lnr-briefcase"></span>
+                  <span class="link-text">Portfolio</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="index.html#blog" class="nav-anim">
+                  <span class="menu-icon lnr lnr-book"></span>
+                  <span class="link-text">Blog</span>
+                </a>
+              </li>
+              <li>
+                <a href="index.html#contact" class="nav-anim">
+                  <span class="menu-icon lnr lnr-envelope"></span>
+                  <span class="link-text">Contact</span>
+                </a>
+              </li>
+            </ul>
+
+            <div class="social-links">
+              <ul>
+                <li><a href="https://www.linkedin.com/in/adam-mais-1b979322b/" target="_blank"><i
+                      class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://github.com/adammais" target="_blank"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div>
+
+            <div class="header-buttons">
+              <a href="AdamMaisResume.pdf" download="AdamMaisResume" target="_blank"
+                class="btn btn-primary">Download Resume</a>
+            </div>
+          
+          </header>
+
+          <!-- Mobile Navigation -->
+          <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <!-- End Mobile Navigation -->
+
+          <div class="content-area single-page-area">
+            <div class="single-page-content">
+
+              <article class="post">
+                <div class="post-content">
+                  <!-- /Entry header -->
+                  <header class="entry-header">
+
+                    <h2 class="entry-title">Building a Conference Search System with RAG: What It’s Great At and What Comes Next</h2>
+                  </header>
+                  <!-- /Entry header -->
+
+                  <!-- Entry content -->
+                  <div class="entry-content">
+                    <div class="row">
+                      <div class=" col-xs-12 col-sm-12 ">
+                        <div class="col-inner">
+                          <p>I recently built a conference search system using a Retrieval-Augmented Generation (RAG) approach on Azure. The goal was to support questions about a large conference dataset that would be difficult to answer with traditional keyword search alone.</p>
+                          
+                          <h3>The Initial Data Pipeline</h3>
+                          <p>The foundation of the system was a set of structured conference JSON documents describing sessions and speakers. Because LinkedIn discourages direct querying and scraping, I used Bing Grounded Search to responsibly augment the speaker profiles with publicly available information. This enrichment step produced high-quality background data on speakers, including roles, company affiliations, and professional focus.</p>
+                          
+                          <p>All session and enriched speaker content was then loaded into Azure AI Search, vectorized using Azure OpenAI embeddings, and connected to GPT-4.1 for RAG-based question answering. This setup worked for a range of natural-language queries, such as:</p>
+                          
+                          <ul>
+                            <li>Finding sessions related to API Gateways</li>
+                            <li>Exploring a speaker’s background and how it connects to their presentation</li>
+                          </ul>
+                          <div class="white-space-30"></div>
+                          <img src="img/blog/azure_search.png" alt="Azure AI Search Explorer" />
+                          <p>Azure AI Search Explorer displaying the nearest document chunks retrieved for the query, ranked by relevance score.</p>
+                          <div class="white-space-30"></div>
+
+                          <div class="white-space-30"></div>
+                          <img src="img/blog/rag_chat.png" alt="RAG Chat Playground" />
+                          <p>The RAG chat playground above shows the system in action, answering questions about the conference dataset.</p>
+                          <div class="white-space-30"></div>
+                          
+                          
+                          <p>For these exploratory, explanatory, and comparative use cases RAG performs well. However, RAG isn't designed for aggregation or global analytics. Questions like "How many sessions are sales-oriented versus technical?" would require the context of the entire knowledge base. A pure RAG pipeline can only reason over a limited set of chunks it retrieves for each query (most modern RAG systems return the closest N chunks to the vector representation of the query). Therefore, RAG is fundamentally unsuitable for answering questions on global statistics.</p>
+
+                          <h3>An Improved Pipeline</h3>
+                          <p>The natural next step for the system is therefore a multi-tool architecture, where each component is used for what it does best:</p>
+                          
+                          <ul>
+                            <li><strong>Structured Data Layer:</strong> Maintain clean, structured fields such as speaker company and session type.</li>
+                            <li><strong>Deterministic Analytics Layer:</strong> Use filtered queries and aggregations (via Azure AI Search facets or a lightweight database) to compute accurate counts and breakdowns.</li>
+                            <li><strong>Query Understanding:</strong>
+                              <ul>
+                                <li>Classify incoming user questions as either:
+                                  <ul>
+                                    <li>Analytical (“How many”, “What percentage”) or</li>
+                                    <li>Exploratory (“Tell me about”, “Compare”, “Find”)</li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                            <li><strong>Routing:</strong>
+                              <ul>
+                                <li>Route analytical questions to deterministic queries</li>
+                                <li>Route exploratory questions to the RAG system</li>
+                              </ul>
+                            </li>
+                            <li><strong>GPT as the Narrative Layer:</strong> Use GPT-4.1 to explain, contextualize, and summarize both retrieved content and computed statistics in natural language.</li>
+                          </ul>
+
+                          <h3>Takeaway</h3>
+                          <p>This project reinforced an important design principle: RAG is a powerful reasoning and discovery tool, but it is not a replacement for structured analytics. Used correctly, it enables rich exploration of sessions and speakers, supports deep comparative analysis, and dramatically improves discoverability across large unstructured corpora. To answer higher-level aggregation questions with the same confidence, it must be paired with deterministic querying inside an agentic orchestration layer.</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Entry content -->
+    
+                  <div class="entry-meta entry-meta-bottom">
+                    <div class="date-author">
+                      <span class="entry-date">
+                        <a href="#" rel="bookmark">
+                          <i class="far fa-clock"></i> <span class="entry-date"> Dec 08, 2025</span>
+                        </a>
+                      </span>
+                      <span class="author vcard">
+                        <a class="url fn n" href="#" rel="author"> <i class="fas fa-user"></i> Adam Mais</a>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="post-tags">
+                    <div class="tags">
+                      <a href="#" rel="tag">AI</a>
+                      <a href="#" rel="tag">RAG</a>
+                      <a href="#" rel="tag">Azure</a>
+                      <a href="#" rel="tag">OpenAI</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/animating.js"></script>
+
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script src='js/perfect-scrollbar.min.js'></script>
+    <script src='js/jquery.shuffle.min.js'></script>
+    <script src='js/masonry.pkgd.min.js'></script>
+    <script src='js/owl.carousel.min.js'></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script>
+    <script src="js/jquery.googlemap.js"></script>
+    <script src="js/validator.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
